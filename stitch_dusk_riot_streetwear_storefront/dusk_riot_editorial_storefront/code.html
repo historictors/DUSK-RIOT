@@ -1,0 +1,581 @@
+<!DOCTYPE html><html lang="en"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DUSK RIOT — Break The Ordinary</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script id="tailwind-config">/** @type {import('tailwindcss').Config} */
+globalThis.tailwind = globalThis.tailwind || {};
+globalThis.tailwind.config = {
+  darkMode: 'class',
+  theme: {
+    extend: {
+      colors: {
+        'surface': '#0B0B0B',
+        'on-surface': '#F5F5F0',
+        'surface-container-low': '#151515',
+        'surface-container': '#191919',
+        'surface-container-high': '#222222',
+        'on-surface-variant': '#A1A1A1',
+        'primary': '#F5F5F0',
+        'on-primary': '#0B0B0B',
+        'accent': '#C7FF3D',
+        'on-accent': '#0B0B0B',
+        'outline': '#292929',
+        'outline-variant': '#1F1F1F',
+        'error': '#FF5449',
+        'on-error': '#0B0B0B',
+      },
+      borderRadius: {
+        'none': '0px',
+        'sm': '2px',
+        'DEFAULT': '0px',
+        'md': '2px',
+        'full': '9999px',
+      },
+      spacing: {
+        'gutter-xs': '4px',
+        'gutter-sm': '8px',
+        'gutter-md': '16px',
+        'gutter-lg': '24px',
+        'gutter-xl': '32px',
+        'section': '64px',
+        'page-margin': '32px',
+      },
+      fontFamily: {
+        'display': ['"Barlow Condensed"', 'sans-serif'],
+        'headline': ['"Barlow Condensed"', 'sans-serif'],
+        'title': ['"Barlow Condensed"', 'sans-serif'],
+        'body': ['"Inter"', 'sans-serif'],
+        'label': ['"Inter"', 'sans-serif'],
+      },
+      fontSize: {
+        'display-xl': ['88px', { lineHeight: '84px', letterSpacing: '-2px', fontWeight: '800' }],
+        'display-xl-mobile': ['32px', { lineHeight: '34px', letterSpacing: '-0.5px', fontWeight: '800' }],
+        'display-lg': ['64px', { lineHeight: '62px', letterSpacing: '-1.5px', fontWeight: '800' }],
+        'display-lg-mobile': ['32px', { lineHeight: '34px', letterSpacing: '-0.5px', fontWeight: '800' }],
+        'headline-lg': ['44px', { lineHeight: '46px', letterSpacing: '-0.75px', fontWeight: '700' }],
+        'headline-lg-mobile': ['28px', { lineHeight: '30px', letterSpacing: '-0.25px', fontWeight: '700' }],
+        'headline-md': ['32px', { lineHeight: '36px', letterSpacing: '-0.25px', fontWeight: '700' }],
+        'title-lg': ['24px', { lineHeight: '28px', letterSpacing: '0.25px', fontWeight: '700' }],
+        'title-md': ['16px', { lineHeight: '22px', letterSpacing: '0px', fontWeight: '600' }],
+        'body-lg': ['16px', { lineHeight: '24px', letterSpacing: '0px', fontWeight: '400' }],
+        'body-md': ['14px', { lineHeight: '22px', letterSpacing: '0px', fontWeight: '400' }],
+        'label-lg': ['13px', { lineHeight: '16px', letterSpacing: '0.75px', fontWeight: '600' }],
+        'label-sm': ['11px', { lineHeight: '14px', letterSpacing: '1px', fontWeight: '500' }],
+      },
+      transitionDuration: {
+        'state-change': '150ms',
+        'image-hover': '280ms',
+        'drawer-enter': '240ms',
+      },
+      transitionDelay: {
+        'state-change': '0ms',
+        'image-hover': '0ms',
+        'drawer-enter': '0ms',
+      },
+      transitionTimingFunction: {
+        'state-change': 'cubic-bezier(0.2, 0, 0, 1)',
+        'image-hover': 'cubic-bezier(0.2, 0, 0, 1)',
+        'drawer-enter': 'cubic-bezier(0.2, 0, 0, 1)',
+      },
+    },
+  },
+};
+if (typeof module !== 'undefined') module.exports = globalThis.tailwind.config;
+</script>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&amp;family=Inter:wght@400;500;600;700&amp;family=Spline+Sans+Mono:wght@500&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=block" rel="stylesheet">
+  <style>.material-symbols-outlined, .material-symbols-rounded, .material-symbols-sharp, .material-icons { display: inline-block; width: 1em; height: 1em; line-height: 1 !important; box-sizing: content-box; overflow: hidden; white-space: nowrap; direction: ltr; vertical-align: middle; }</style>
+</head>
+<body class="bg-surface text-on-surface font-body antialiased selection:bg-accent selection:text-on-accent">
+
+  <div class="min-h-[1024px] flex flex-col bg-surface" data-stitch-vh="min-h-[1024px]===min-h-screen">
+
+    <!-- Top Utility Ticker -->
+    <div class="bg-surface-container-low border-b border-outline px-gutter-md md:px-page-margin py-2 flex items-center justify-between gap-gutter-md">
+      <div class="flex items-center gap-gutter-sm">
+        <!-- COMPONENT: badge-dot -->
+        <span data-component-id="badge-dot" data-component-type="badge" data-component-variant="dot" role="status" aria-label="Live release" class="inline-block w-2 h-2 bg-accent"></span>
+        <span data-design-text-token="label-sm" class="font-label text-label-sm uppercase text-on-surface tracking-widest">
+          DROP 04 // NOW LIVE — WORLDWIDE DISPATCH
+        </span>
+      </div>
+      <span data-design-text-token="label-sm" class="hidden sm:inline font-label text-label-sm uppercase text-on-surface-variant tracking-widest">
+        FREE EXPRESS SHIPPING OVER $200
+      </span>
+    </div>
+
+    <!-- Primary Header -->
+    <header class="sticky top-0 z-40 bg-surface border-b border-outline">
+      <div class="max-w-[1440px] mx-auto px-gutter-md md:px-page-margin h-16 flex items-center justify-between gap-gutter-lg">
+
+        <!-- Left: Brand Wordmark + Mobile Menu Trigger -->
+        <div class="flex items-center gap-gutter-md min-w-0">
+          <!-- COMPONENT: button-icon -->
+          <button id="mobile-menu-open" data-component-id="button-icon" data-component-type="button" data-component-variant="icon" type="button" aria-label="Open navigation menu" aria-expanded="false" class="md:hidden inline-flex items-center justify-center w-10 h-10 bg-surface-container-low text-on-surface border border-outline transition-colors duration-state-change ease-state-change hover:border-primary hover:text-accent focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent">
+            <span class="material-symbols-outlined text-[20px]" aria-hidden="true">menu</span>
+          </button>
+
+          <a href="#top" class="font-display text-headline-md uppercase tracking-tight text-on-surface hover:text-accent transition-colors duration-state-change">
+            DUSK RIOT
+          </a>
+        </div>
+
+        <!-- Center: Desktop Navigation -->
+        <nav aria-label="Primary navigation" class="hidden md:flex items-center gap-gutter-xl">
+          <a href="#drop-04" data-design-text-token="label-lg" class="font-label text-label-lg uppercase tracking-wider text-accent border-b-2 border-accent py-1">Drop 04</a>
+          <a href="#editorial" data-design-text-token="label-lg" class="font-label text-label-lg uppercase tracking-wider text-on-surface hover:text-accent transition-colors duration-state-change py-1">Editorial</a>
+          <a href="#lookbook" data-design-text-token="label-lg" class="font-label text-label-lg uppercase tracking-wider text-on-surface hover:text-accent transition-colors duration-state-change py-1">Lookbook</a>
+          <a href="#archive" data-design-text-token="label-lg" class="font-label text-label-lg uppercase tracking-wider text-on-surface-variant hover:text-on-surface transition-colors duration-state-change py-1">Archive</a>
+        </nav>
+
+        <!-- Right: Search + Bag -->
+        <div class="flex items-center gap-gutter-sm">
+          <button type="button" aria-label="Search catalog" class="inline-flex items-center justify-center w-10 h-10 bg-surface text-on-surface border border-outline transition-colors duration-state-change hover:border-primary hover:text-accent focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent">
+            <span class="material-symbols-outlined text-[20px]" aria-hidden="true">search</span>
+          </button>
+
+          <button type="button" aria-label="Shopping bag with 2 items" class="inline-flex items-center gap-gutter-sm h-10 px-gutter-md bg-surface-container-low text-on-surface border border-outline transition-colors duration-state-change hover:border-primary focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent">
+            <span class="material-symbols-outlined text-[18px]" aria-hidden="true">shopping_bag</span>
+            <span data-design-text-token="label-lg" class="hidden sm:inline font-label text-label-lg uppercase tracking-wider">Bag</span>
+            <!-- COMPONENT: badge-numeric -->
+            <span id="bag-count" data-component-id="badge-numeric" data-component-type="badge" data-component-variant="numeric" aria-hidden="true" class="inline-flex items-center justify-center bg-accent text-on-accent font-label text-label-sm px-1.5 py-0.5 tabular-nums">
+              <span data-design-text-token="label-sm">02</span>
+            </span>
+          </button>
+        </div>
+
+      </div>
+    </header>
+
+    <!-- Responsive Mobile Navigation Drawer -->
+    <div id="mobile-drawer" class="fixed inset-0 z-50 hidden" role="dialog" aria-modal="true" aria-label="Mobile navigation">
+      <div id="mobile-drawer-backdrop" class="absolute inset-0 bg-surface/85"></div>
+      <aside class="relative w-80 max-w-full min-h-[1024px] bg-surface-container-low border-r border-outline p-gutter-lg flex flex-col justify-between" data-stitch-vh="min-h-[1024px]===min-h-screen">
+        <div class="flex flex-col gap-gutter-xl">
+          <div class="flex items-center justify-between border-b border-outline pb-gutter-md">
+            <span class="font-display text-headline-md uppercase text-on-surface">DUSK RIOT</span>
+            <button id="mobile-menu-close" type="button" aria-label="Close navigation menu" class="inline-flex items-center justify-center w-10 h-10 bg-surface text-on-surface border border-outline hover:border-accent hover:text-accent transition-colors duration-state-change">
+              <span class="material-symbols-outlined text-[20px]" aria-hidden="true">close</span>
+            </button>
+          </div>
+          <nav class="flex flex-col gap-gutter-md" aria-label="Mobile links">
+            <a href="#drop-04" class="mobile-nav-link font-headline text-headline-md uppercase text-accent border-b border-outline pb-gutter-sm">Drop 04 — Live</a>
+            <a href="#editorial" class="mobile-nav-link font-headline text-headline-md uppercase text-on-surface hover:text-accent border-b border-outline pb-gutter-sm transition-colors duration-state-change">Editorial Manifesto</a>
+            <a href="#lookbook" class="mobile-nav-link font-headline text-headline-md uppercase text-on-surface hover:text-accent border-b border-outline pb-gutter-sm transition-colors duration-state-change">After Hours Lookbook</a>
+            <a href="#archive" class="mobile-nav-link font-headline text-headline-md uppercase text-on-surface-variant hover:text-on-surface border-b border-outline pb-gutter-sm transition-colors duration-state-change">Archive</a>
+          </nav>
+        </div>
+        <div class="border-t border-outline pt-gutter-md flex flex-col gap-gutter-xs">
+          <span data-design-text-token="label-sm" class="font-label text-label-sm uppercase text-on-surface-variant">INDEPENDENT STREETWEAR LABEL</span>
+          <span data-design-text-token="label-sm" class="font-label text-label-sm uppercase text-accent">WEAR YOUR REBELLION.</span>
+        </div>
+      </aside>
+    </div>
+
+    <main id="top" class="flex-1">
+
+      <!-- 1. Full-Bleed Hero Campaign Section -->
+      <section class="relative border-b border-outline bg-surface overflow-hidden">
+        <div class="relative min-h-[620px] lg:min-h-[720px] flex items-end">
+          <img src="https://lh3.googleusercontent.com/aida/ALJJyrCiH4f-jD8fZM7EqzjBTD5Aa1OONf71lmxtzKsR2lOx9YYOJ229EiO-c56zId3cxYYkObO6hhdWY6toHt_Ob3THVWIngC5J6WwxQf7CYjZM0RD7Ojjl3LuqECvQfDaNXmgw0YlHLcgOb2WoPwgTUa1S2AV5LAGDPfOkFvoqnf47diMejJ0-Z_E2ltVrbA7DQKCdBX08IpWidMEAJj9Cj0Y7k8MXDoPDR0fCgF_7IwmhMK3yliZc_SKz" alt="DUSK RIOT Drop 04 campaign models in oversized obsidian hoodies in a concrete underpass" class="absolute inset-0 w-full h-full object-cover object-center">
+          <div class="absolute inset-0 bg-surface/55"></div>
+
+          <div class="relative z-10 w-full max-w-[1440px] mx-auto px-gutter-md md:px-page-margin py-section">
+            <div class="max-w-3xl flex flex-col gap-gutter-lg">
+              <div class="flex items-center gap-gutter-md">
+                <!-- COMPONENT: badge-status -->
+                <span data-component-id="badge-status" data-component-type="badge" data-component-variant="status" role="status" class="inline-flex items-center justify-center bg-surface text-accent border border-accent font-label text-label-sm uppercase px-2.5 py-1 tracking-widest">
+                  <span data-design-text-token="label-sm">FW26 // DROP 04</span>
+                </span>
+                <span data-design-text-token="label-sm" class="font-label text-label-sm uppercase text-on-surface tracking-widest">
+                  LIMITED NUMBERED RUN
+                </span>
+              </div>
+
+              <!-- COMPONENT: typography-display -->
+              <h1 data-component-id="typography-display" data-component-type="typography" data-component-variant="display" data-design-text-token="display-xl" class="font-display text-display-xl-mobile md:text-display-xl uppercase text-on-surface tracking-tight text-balance">
+                BREAK THE ORDINARY.
+              </h1>
+
+              <p data-design-text-token="body-lg" class="font-body text-body-lg text-on-surface max-w-prose text-pretty">
+                Heavyweight 480GSM French terry, boxy distressed graphic tees, and matte technical outerwear cut for late-night concrete.
+              </p>
+
+              <div class="flex flex-wrap items-center gap-gutter-md pt-gutter-xs">
+                <!-- COMPONENT: button-primary -->
+                <a href="#drop-04" data-component-id="button-primary" data-component-type="button" data-component-variant="primary" class="inline-flex items-center justify-center bg-accent text-on-accent font-label text-label-lg uppercase tracking-wider px-gutter-xl py-3.5 border border-accent transition-colors duration-state-change ease-state-change hover:bg-primary hover:text-on-primary hover:border-primary focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent">
+                  <span data-design-text-token="label-lg">Shop Drop 04</span>
+                </a>
+
+                <!-- COMPONENT: button-secondary -->
+                <a href="#lookbook" data-component-id="button-secondary" data-component-type="button" data-component-variant="secondary" class="inline-flex items-center justify-center bg-surface/90 text-on-surface font-label text-label-lg uppercase tracking-wider px-gutter-xl py-3.5 border border-outline transition-colors duration-state-change ease-state-change hover:border-primary hover:bg-surface-container-high focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary">
+                  <span data-design-text-token="label-lg">Explore Lookbook</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 2. Asymmetric Editorial Split (7 / 5 Grid) -->
+      <section id="editorial" class="border-b border-outline bg-surface-container-low">
+        <div class="max-w-[1440px] mx-auto px-gutter-md md:px-page-margin py-section">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter-xl items-stretch">
+
+            <!-- Left 7 Columns: Manifesto & Garment Architecture -->
+            <div class="lg:col-span-7 bg-surface-container border border-outline p-gutter-xl flex flex-col justify-between gap-gutter-xl">
+              <div class="flex flex-col gap-gutter-lg">
+                <span data-design-text-token="label-sm" class="font-label text-label-sm uppercase text-accent tracking-widest">
+                  LABEL MANIFESTO // INDEPENDENT STREETWEAR
+                </span>
+
+                <h2 data-design-text-token="display-lg" class="font-display text-display-lg-mobile md:text-display-lg uppercase text-on-surface text-balance">
+                  WEAR YOUR REBELLION.
+                </h2>
+
+                <p data-design-text-token="body-lg" class="font-body text-body-lg text-on-surface-variant max-w-prose text-pretty">
+                  Born in the concrete alleys after midnight, DUSK RIOT rejects seasonal excess and disposable trends. Every silhouette is engineered from custom-milled heavyweight cotton and ripstop nylon—built to age with raw character.
+                </p>
+              </div>
+
+              <!-- Spec Strip -->
+              <div class="grid grid-cols-1 sm:grid-cols-3 border-t border-outline pt-gutter-lg gap-gutter-lg">
+                <div class="flex flex-col gap-gutter-xs">
+                  <span data-design-text-token="headline-md" class="font-headline text-headline-md uppercase text-on-surface tabular-nums">480 GSM</span>
+                  <span data-design-text-token="label-sm" class="font-label text-label-sm uppercase text-on-surface-variant">CUSTOM FRENCH TERRY</span>
+                </div>
+                <div class="flex flex-col gap-gutter-xs">
+                  <span data-design-text-token="headline-md" class="font-headline text-headline-md uppercase text-on-surface">BOXY CUT</span>
+                  <span data-design-text-token="label-sm" class="font-label text-label-sm uppercase text-on-surface-variant">DROPPED SHOULDER FIT</span>
+                </div>
+                <div class="flex flex-col gap-gutter-xs">
+                  <span data-design-text-token="headline-md" class="font-headline text-headline-md uppercase text-accent tabular-nums">300 PCS</span>
+                  <span data-design-text-token="label-sm" class="font-label text-label-sm uppercase text-on-surface-variant">NUMBERED PER STYLE</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right 5 Columns: Editorial Portrait -->
+            <div class="lg:col-span-5 bg-surface-container border border-outline flex flex-col">
+              <div class="relative flex-1 min-h-[420px] overflow-hidden border-b border-outline">
+                <img src="https://lh3.googleusercontent.com/aida/ALJJyrD2hfwVgdk_WNozCH080Ekh3L5Y9e7RmT1-pFMezd8voka_S_wSlk0sgCjCzStO1y9JYrw_TOKvfOHOGCEfyq_jsm4dUNAmXqO6nL9WPjStbQKCd8A15EhdPu0OEEMnaw7dj1lIVlzIYJdI4CIO2Yp4bPLX-S7fIW8nr-Wksu1lebm2rEB9an29WYmuE_qlEel7k9ZZ-uRQjdWVW8ujI2SxFmtojMBJnY324mWZTyxNpDZ4BlgtHttMlqk" alt="Model wearing DUSK RIOT oversized charcoal graphic tee against raw concrete" class="w-full h-full object-cover object-top">
+              </div>
+              <div class="p-gutter-md flex items-center justify-between gap-gutter-md bg-surface-container">
+                <span data-design-text-token="label-sm" class="font-label text-label-sm uppercase text-on-surface tracking-widest">
+                  CAMPAIGN FRAME 01 // STUDIO CONCRETE
+                </span>
+                <span data-design-text-token="label-sm" class="font-label text-label-sm uppercase text-on-surface-variant tabular-nums shrink-0">
+                  35MM FLASH
+                </span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- 3. Clean Product Grid (DROP 04) -->
+      <section id="drop-04" class="border-b border-outline bg-surface">
+        <div class="max-w-[1440px] mx-auto px-gutter-md md:px-page-margin py-section flex flex-col gap-gutter-xl">
+
+          <!-- Section Header + Category Filter -->
+          <div class="flex flex-col md:flex-row md:items-end justify-between gap-gutter-lg border-b border-outline pb-gutter-lg">
+            <div class="flex flex-col gap-gutter-xs">
+              <span data-design-text-token="label-sm" class="font-label text-label-sm uppercase text-accent tracking-widest">
+                RELEASE 04 // IN STOCK
+              </span>
+              <h2 data-design-text-token="headline-lg" class="font-headline text-headline-lg-mobile md:text-headline-lg uppercase text-on-surface">
+                CORE GARMENTS
+              </h2>
+            </div>
+
+            <div class="flex flex-wrap items-center gap-gutter-xs" role="tablist" aria-label="Filter garments by category">
+              <button type="button" data-filter="all" class="filter-btn bg-primary text-on-primary font-label text-label-sm uppercase tracking-widest px-gutter-md py-2 border border-primary transition-colors duration-state-change">All (04)</button>
+              <button type="button" data-filter="hoodies" class="filter-btn bg-surface-container-low text-on-surface-variant font-label text-label-sm uppercase tracking-widest px-gutter-md py-2 border border-outline hover:border-primary hover:text-on-surface transition-colors duration-state-change">Hoodies</button>
+              <button type="button" data-filter="tees" class="filter-btn bg-surface-container-low text-on-surface-variant font-label text-label-sm uppercase tracking-widest px-gutter-md py-2 border border-outline hover:border-primary hover:text-on-surface transition-colors duration-state-change">Graphic Tees</button>
+              <button type="button" data-filter="outerwear" class="filter-btn bg-surface-container-low text-on-surface-variant font-label text-label-sm uppercase tracking-widest px-gutter-md py-2 border border-outline hover:border-primary hover:text-on-surface transition-colors duration-state-change">Outerwear</button>
+              <button type="button" data-filter="bottoms" class="filter-btn bg-surface-container-low text-on-surface-variant font-label text-label-sm uppercase tracking-widest px-gutter-md py-2 border border-outline hover:border-primary hover:text-on-surface transition-colors duration-state-change">Bottoms</button>
+            </div>
+          </div>
+
+          <!-- 4-Column Product Grid -->
+          <div id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-gutter-lg items-stretch">
+
+            <!-- Product 1 -->
+            <article data-category="hoodies" data-component-id="card-interactive" data-component-type="card" data-component-variant="interactive" class="product-card group bg-surface-container border border-outline flex flex-col justify-between transition-colors duration-state-change hover:border-primary">
+              <a href="#product-hoodie" class="flex flex-col flex-1">
+                <div class="aspect-[3/4] bg-surface-container-low overflow-hidden border-b border-outline relative">
+                  <img src="https://lh3.googleusercontent.com/aida/ALJJyrBfwsSIT28wsgq92Q_bPgaYHYIeoQoIa9K3FbfAEqu3GZzyfu7Z7V4iQsweh9xccmURlopZqqHgv_LV-TVvE4xfbF3XfgXP1DM0VoIsah8PRXS4RUYgLjvPeZY1-3zVW3FziuMWWqJq0D6KQpXcXmZl5cCxu8NxM1zblbE5V94OMcU0JlW0vU6QP7TjaeGVlUgPhvqs6hEVN4LDNyYL0FaZh3iLrVXai0FcA71lZ1nISn8O0XDU" alt="Obsidian Heavyweight Hoodie in washed black 480GSM cotton" class="w-full h-full object-cover transition-transform duration-image-hover ease-image-hover group-hover:scale-[1.03]">
+                  <span data-design-text-token="label-sm" class="absolute top-3 left-3 bg-surface text-accent border border-accent font-label text-label-sm uppercase px-2 py-0.5 tracking-widest">
+                    NEW DROP
+                  </span>
+                </div>
+                <div class="p-gutter-md flex flex-col gap-gutter-xs">
+                  <div class="flex items-center justify-between gap-gutter-sm">
+                    <h3 data-design-text-token="title-md" class="font-body text-title-md text-on-surface uppercase group-hover:text-accent transition-colors duration-state-change">
+                      Obsidian Hoodie
+                    </h3>
+                    <span data-design-text-token="label-sm" class="font-label text-label-sm text-on-surface tabular-nums shrink-0">$165</span>
+                  </div>
+                  <p data-design-text-token="body-md" class="font-body text-body-md text-on-surface-variant">
+                    480GSM French Terry / Boxy Fit
+                  </p>
+                </div>
+              </a>
+              <div class="p-gutter-md pt-0">
+                <button type="button" data-add-bag="Obsidian Hoodie" class="quick-add-btn w-full bg-surface-container-low text-on-surface font-label text-label-lg uppercase tracking-wider py-2.5 px-gutter-md border border-outline transition-colors duration-state-change hover:bg-accent hover:text-on-accent hover:border-accent">
+                  <span data-design-text-token="label-lg">Quick Add</span>
+                </button>
+              </div>
+            </article>
+
+            <!-- Product 2 -->
+            <article data-category="tees" data-component-id="card-interactive" data-component-type="card" data-component-variant="interactive" class="product-card group bg-surface-container border border-outline flex flex-col justify-between transition-colors duration-state-change hover:border-primary">
+              <a href="#product-tee" class="flex flex-col flex-1">
+                <div class="aspect-[3/4] bg-surface-container-low overflow-hidden border-b border-outline relative">
+                  <img src="https://lh3.googleusercontent.com/aida/ALJJyrBlQXRxKDGWRm8dklBPo2D7RyYO0W8YvhHTviDDZOzJcCjYiKzCfWLBAOU7n0eqOvnbMQIUsxiBb1xw-liQou3yOrAC2RhofPA8epMfwFxgTnAkjsC1o4CqY2QaYZAMNyT8NVPQPAY9RBWBpNq8skJbN2TZAiCqOLMt71hVwYJZvk-VRXn1ciULsgZoZTq_utHEnfVhMIHa5V2qCg8O3d-clL6pCior3VWyVRieSHgpiT5Q" alt="Static Boxy Tee in faded black heavyweight jersey" class="w-full h-full object-cover transition-transform duration-image-hover ease-image-hover group-hover:scale-[1.03]">
+                </div>
+                <div class="p-gutter-md flex flex-col gap-gutter-xs">
+                  <div class="flex items-center justify-between gap-gutter-sm">
+                    <h3 data-design-text-token="title-md" class="font-body text-title-md text-on-surface uppercase group-hover:text-accent transition-colors duration-state-change">
+                      Static Boxy Tee
+                    </h3>
+                    <span data-design-text-token="label-sm" class="font-label text-label-sm text-on-surface tabular-nums shrink-0">$75</span>
+                  </div>
+                  <p data-design-text-token="body-md" class="font-body text-body-md text-on-surface-variant">
+                    300GSM Combed Cotton / Puff Print
+                  </p>
+                </div>
+              </a>
+              <div class="p-gutter-md pt-0">
+                <button type="button" data-add-bag="Static Boxy Tee" class="quick-add-btn w-full bg-surface-container-low text-on-surface font-label text-label-lg uppercase tracking-wider py-2.5 px-gutter-md border border-outline transition-colors duration-state-change hover:bg-accent hover:text-on-accent hover:border-accent">
+                  <span data-design-text-token="label-lg">Quick Add</span>
+                </button>
+              </div>
+            </article>
+
+            <!-- Product 3 -->
+            <article data-category="outerwear" data-component-id="card-interactive" data-component-type="card" data-component-variant="interactive" class="product-card group bg-surface-container border border-outline flex flex-col justify-between transition-colors duration-state-change hover:border-primary">
+              <a href="#product-jacket" class="flex flex-col flex-1">
+                <div class="aspect-[3/4] bg-surface-container-low overflow-hidden border-b border-outline relative">
+                  <img src="https://lh3.googleusercontent.com/aida/ALJJyrCfBZ4wBumA7lpRRDogV29674gEpHFi2Nofoy5dtAcx47KSoDHtvt5BFNflOD2PaGHokECv3a31WaCnWhDTf1iBZUA_IW9yo6BkyOgF7AgqZC-BeBMR0SGqcC4ZL5DAYw0tOwkr21tR7AsDd79M1osfk0gP9Tj_gdLPlVaRMNdIZTblPWc9FmWAaTLeeua54aI__LQ-kkToe9pBskKahhiFO-czUtEfQyxqquqOtZNS36ymmAGK" alt="Nocturne Bomber in matte black technical nylon" class="w-full h-full object-cover transition-transform duration-image-hover ease-image-hover group-hover:scale-[1.03]">
+                  <span data-design-text-token="label-sm" class="absolute top-3 left-3 bg-accent text-on-accent font-label text-label-sm uppercase px-2 py-0.5 tracking-widest">
+                    LIMITED
+                  </span>
+                </div>
+                <div class="p-gutter-md flex flex-col gap-gutter-xs">
+                  <div class="flex items-center justify-between gap-gutter-sm">
+                    <h3 data-design-text-token="title-md" class="font-body text-title-md text-on-surface uppercase group-hover:text-accent transition-colors duration-state-change">
+                      Nocturne Bomber
+                    </h3>
+                    <span data-design-text-token="label-sm" class="font-label text-label-sm text-on-surface tabular-nums shrink-0">$240</span>
+                  </div>
+                  <p data-design-text-token="body-md" class="font-body text-body-md text-on-surface-variant">
+                    Matte Ripstop Nylon / Cropped Cut
+                  </p>
+                </div>
+              </a>
+              <div class="p-gutter-md pt-0">
+                <button type="button" data-add-bag="Nocturne Bomber" class="quick-add-btn w-full bg-surface-container-low text-on-surface font-label text-label-lg uppercase tracking-wider py-2.5 px-gutter-md border border-outline transition-colors duration-state-change hover:bg-accent hover:text-on-accent hover:border-accent">
+                  <span data-design-text-token="label-lg">Quick Add</span>
+                </button>
+              </div>
+            </article>
+
+            <!-- Product 4 -->
+            <article data-category="bottoms" data-component-id="card-interactive" data-component-type="card" data-component-variant="interactive" class="product-card group bg-surface-container border border-outline flex flex-col justify-between transition-colors duration-state-change hover:border-primary">
+              <a href="#product-cargo" class="flex flex-col flex-1">
+                <div class="aspect-[3/4] bg-surface-container-low overflow-hidden border-b border-outline relative">
+                  <img src="https://lh3.googleusercontent.com/aida/ALJJyrB9heaBxBErpVPUhhHJraWv2jomYyjFgZSc95P27tdGuCLzo3-G4Sv-LpJyg6TerkLzm6xLIZ1v3rugX2g7opNeI2Nl2R4wo3uxxOAjUAx_hfeOmXUHZhhBT9iSaE0uxYWcT4XzkTFbeHZk0ODNS2uAIDNo4x9e4OxoypcoAU_F1EU0xW0R7DU3tOwyGJPISECOdNMjL46LyM9qMaB4KNb-ueNZVq_KpDgEcU9uuS1nsG-XS1w" alt="Concrete Cargo trousers in charcoal ripstop" class="w-full h-full object-cover transition-transform duration-image-hover ease-image-hover group-hover:scale-[1.03]">
+                </div>
+                <div class="p-gutter-md flex flex-col gap-gutter-xs">
+                  <div class="flex items-center justify-between gap-gutter-sm">
+                    <h3 data-design-text-token="title-md" class="font-body text-title-md text-on-surface uppercase group-hover:text-accent transition-colors duration-state-change">
+                      Concrete Cargo
+                    </h3>
+                    <span data-design-text-token="label-sm" class="font-label text-label-sm text-on-surface tabular-nums shrink-0">$190</span>
+                  </div>
+                  <p data-design-text-token="body-md" class="font-body text-body-md text-on-surface-variant">
+                    Articulated Ripstop / Relaxed Wide
+                  </p>
+                </div>
+              </a>
+              <div class="p-gutter-md pt-0">
+                <button type="button" data-add-bag="Concrete Wide Cargo" class="quick-add-btn w-full bg-surface-container-low text-on-surface font-label text-label-lg uppercase tracking-wider py-2.5 px-gutter-md border border-outline transition-colors duration-state-change hover:bg-accent hover:text-on-accent hover:border-accent">
+                  <span data-design-text-token="label-lg">Quick Add</span>
+                </button>
+              </div>
+            </article>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- 4. Full-Width Lookbook Editorial Banner -->
+      <section id="lookbook" class="border-b border-outline bg-surface-container-low">
+        <div class="max-w-[1440px] mx-auto px-gutter-md md:px-page-margin py-section">
+          <div class="relative border border-outline bg-surface-container overflow-hidden min-h-[460px] flex items-end">
+            <img src="https://lh3.googleusercontent.com/aida/ALJJyrC9sOCSsKa14t1XEXtlkOxLFELUEdmLd03zW9bxclEfee5NLgPH6sIBcXkD8ejjGY9GxlQ8LHgFxZaJeCEznRTRSweSw2vE6B2oEHvDJoir7xUWR653lVNr0olP1jxJ0uxBSB-UeHzLaBRXAeG3ouimqvXY2GGDZhDafHG5JeUsk-g89m01pnDG5OUD3yD55xOU9avoh3NTC4K0Sd5sTujzZGElhcnUpGvRtiZSQDUrQbvYl0grsor7" alt="DUSK RIOT After Hours rooftop lookbook editorial" class="absolute inset-0 w-full h-full object-cover object-center">
+            <div class="absolute inset-0 bg-surface/45"></div>
+
+            <div class="relative z-10 w-full p-gutter-lg md:p-gutter-xl flex flex-col md:flex-row md:items-end justify-between gap-gutter-lg">
+              <div class="bg-surface/95 border border-outline p-gutter-lg max-w-xl flex flex-col gap-gutter-sm">
+                <span data-design-text-token="label-sm" class="font-label text-label-sm uppercase text-accent tracking-widest">
+                  EDITORIAL SERIES // 18 LOOKS
+                </span>
+                <h2 data-design-text-token="headline-lg" class="font-headline text-headline-lg-mobile md:text-headline-lg uppercase text-on-surface">
+                  AFTER HOURS ON CONCRETE
+                </h2>
+                <p data-design-text-token="body-md" class="font-body text-body-md text-on-surface-variant text-pretty">
+                  Shot across downtown rooftops between 01:00 and 04:00. Raw silhouettes built for movement in low light.
+                </p>
+              </div>
+
+              <!-- COMPONENT: button-with-icon -->
+              <a href="#editorial" data-component-id="button-with-icon" data-component-type="button" data-component-variant="with-icon" class="inline-flex items-center justify-center gap-gutter-sm bg-primary text-on-primary font-label text-label-lg uppercase tracking-wider px-gutter-xl py-3.5 border border-primary transition-colors duration-state-change ease-state-change hover:bg-accent hover:text-on-accent hover:border-accent">
+                <span data-design-text-token="label-lg">View Lookbook</span>
+                <span class="material-symbols-outlined text-[18px]" aria-hidden="true">arrow_forward</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- 5. Brutalist Editorial Footer -->
+    <footer id="archive" class="bg-surface border-t border-outline">
+      <div class="max-w-[1440px] mx-auto px-gutter-md md:px-page-margin py-section">
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-gutter-xl border-b border-outline pb-gutter-xl">
+
+          <div class="md:col-span-4 flex flex-col gap-gutter-md">
+            <span class="font-display text-headline-lg uppercase text-on-surface">DUSK RIOT</span>
+            <p data-design-text-token="body-md" class="font-body text-body-md text-on-surface-variant max-w-prose">
+              Independent dark editorial streetwear. Engineered in limited runs. Break the ordinary.
+            </p>
+          </div>
+
+          <div class="md:col-span-2 flex flex-col gap-gutter-sm">
+            <span data-design-text-token="label-sm" class="font-label text-label-sm uppercase text-on-surface tracking-widest mb-1">Shop</span>
+            <a href="#drop-04" class="font-body text-body-md text-on-surface-variant hover:text-accent transition-colors duration-state-change">Drop 04</a>
+            <a href="#drop-04" class="font-body text-body-md text-on-surface-variant hover:text-accent transition-colors duration-state-change">Hoodies</a>
+            <a href="#drop-04" class="font-body text-body-md text-on-surface-variant hover:text-accent transition-colors duration-state-change">Graphic Tees</a>
+            <a href="#drop-04" class="font-body text-body-md text-on-surface-variant hover:text-accent transition-colors duration-state-change">Outerwear</a>
+          </div>
+
+          <div class="md:col-span-2 flex flex-col gap-gutter-sm">
+            <span data-design-text-token="label-sm" class="font-label text-label-sm uppercase text-on-surface tracking-widest mb-1">Label</span>
+            <a href="#editorial" class="font-body text-body-md text-on-surface-variant hover:text-accent transition-colors duration-state-change">Manifesto</a>
+            <a href="#lookbook" class="font-body text-body-md text-on-surface-variant hover:text-accent transition-colors duration-state-change">Lookbook</a>
+            <a href="#archive" class="font-body text-body-md text-on-surface-variant hover:text-accent transition-colors duration-state-change">Sizing &amp; Fit</a>
+            <a href="#archive" class="font-body text-body-md text-on-surface-variant hover:text-accent transition-colors duration-state-change">Stockists</a>
+          </div>
+
+          <div class="md:col-span-4 flex flex-col gap-gutter-sm">
+            <span data-design-text-token="label-sm" class="font-label text-label-sm uppercase text-on-surface tracking-widest">Early Drop Access</span>
+            <p data-design-text-token="body-md" class="font-body text-body-md text-on-surface-variant">
+              Private password 2 hours before public release.
+            </p>
+            <form id="dispatch-form" class="flex items-stretch mt-gutter-xs">
+              <label for="dispatch-email" class="sr-only">Email address</label>
+              <input id="dispatch-email" type="email" placeholder="ENTER EMAIL" required class="flex-1 bg-surface-container-low text-on-surface placeholder:text-on-surface-variant font-label text-label-sm px-gutter-md py-3 border border-outline focus:border-accent focus:ring-0 focus:outline-none">
+              <button type="submit" class="bg-primary text-on-primary font-label text-label-lg uppercase tracking-wider px-gutter-lg py-3 border border-primary hover:bg-accent hover:text-on-accent hover:border-accent transition-colors duration-state-change">
+                <span data-design-text-token="label-lg">Join</span>
+              </button>
+            </form>
+            <span id="dispatch-status" class="hidden font-label text-label-sm uppercase text-accent">ACCESS CONFIRMED — CHECK INBOX</span>
+          </div>
+
+        </div>
+
+        <div class="pt-gutter-lg flex flex-col sm:flex-row items-start sm:items-center justify-between gap-gutter-md">
+          <span data-design-text-token="label-sm" class="font-label text-label-sm uppercase text-on-surface-variant">
+            © 2026 DUSK RIOT. ALL RIGHTS RESERVED.
+          </span>
+          <span data-design-text-token="label-sm" class="font-label text-label-sm uppercase text-on-surface-variant">
+            WEAR YOUR REBELLION.
+          </span>
+        </div>
+      </div>
+    </footer>
+
+  </div>
+
+  <script>
+    (function () {
+      // Mobile Navigation Drawer
+      var openBtn = document.getElementById('mobile-menu-open');
+      var closeBtn = document.getElementById('mobile-menu-close');
+      var drawer = document.getElementById('mobile-drawer');
+      var backdrop = document.getElementById('mobile-drawer-backdrop');
+      var navLinks = document.querySelectorAll('.mobile-nav-link');
+
+      function setDrawer(open) {
+        if (!drawer) return;
+        drawer.classList.toggle('hidden', !open);
+        if (openBtn) openBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      }
+
+      if (openBtn) openBtn.addEventListener('click', function () { setDrawer(true); });
+      if (closeBtn) closeBtn.addEventListener('click', function () { setDrawer(false); });
+      if (backdrop) backdrop.addEventListener('click', function () { setDrawer(false); });
+      navLinks.forEach(function (link) {
+        link.addEventListener('click', function () { setDrawer(false); });
+      });
+
+      // Category Filter Tabs
+      var filterBtns = document.querySelectorAll('.filter-btn');
+      var productCards = document.querySelectorAll('.product-card');
+
+      filterBtns.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          var category = btn.getAttribute('data-filter');
+          filterBtns.forEach(function (b) {
+            var active = b === btn;
+            b.className = active
+              ? 'filter-btn bg-primary text-on-primary font-label text-label-sm uppercase tracking-widest px-gutter-md py-2 border border-primary transition-colors duration-state-change'
+              : 'filter-btn bg-surface-container-low text-on-surface-variant font-label text-label-sm uppercase tracking-widest px-gutter-md py-2 border border-outline hover:border-primary hover:text-on-surface transition-colors duration-state-change';
+          });
+          productCards.forEach(function (card) {
+            var match = category === 'all' || card.getAttribute('data-category') === category;
+            card.classList.toggle('hidden', !match);
+          });
+        });
+      });
+
+      // Quick Add Bag Counter
+      var bagCount = 2;
+      var bagBadge = document.querySelector('#bag-count span');
+      var quickAddBtns = document.querySelectorAll('.quick-add-btn');
+
+      quickAddBtns.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          bagCount += 1;
+          if (bagBadge) {
+            bagBadge.textContent = bagCount < 10 ? '0' + bagCount : String(bagCount);
+          }
+          var label = btn.querySelector('span');
+          if (label) {
+            var prev = label.textContent;
+            label.textContent = 'Added';
+            setTimeout(function () { label.textContent = prev; }, 1200);
+          }
+        });
+      });
+
+      // Dispatch Form
+      var form = document.getElementById('dispatch-form');
+      var status = document.getElementById('dispatch-status');
+      if (form && status) {
+        form.addEventListener('submit', function (e) {
+          e.preventDefault();
+          status.classList.remove('hidden');
+          form.reset();
+        });
+      }
+    })();
+  </script>
+
+
+</body></html>

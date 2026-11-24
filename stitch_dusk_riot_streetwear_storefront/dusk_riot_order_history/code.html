@@ -1,0 +1,201 @@
+<!DOCTYPE html><html lang="en"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DUSK RIOT — Order History</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script id="tailwind-config">/** @type {import('tailwindcss').Config} */
+globalThis.tailwind = globalThis.tailwind || {};
+globalThis.tailwind.config = {
+  darkMode: 'class',
+  theme: {
+    extend: {
+      colors: {
+        'surface': '#0B0B0B',
+        'on-surface': '#F5F5F0',
+        'surface-container-low': '#151515',
+        'surface-container': '#191919',
+        'surface-container-high': '#222222',
+        'on-surface-variant': '#A1A1A1',
+        'primary': '#F5F5F0',
+        'on-primary': '#0B0B0B',
+        'accent': '#C7FF3D',
+        'on-accent': '#0B0B0B',
+        'outline': '#292929',
+        'outline-variant': '#1F1F1F',
+        'error': '#FF5449',
+        'on-error': '#0B0B0B',
+      },
+      borderRadius: {
+        'none': '0px',
+        'sm': '2px',
+        'DEFAULT': '0px',
+        'md': '2px',
+        'full': '9999px',
+      },
+      spacing: {
+        'gutter-xs': '4px',
+        'gutter-sm': '8px',
+        'gutter-md': '16px',
+        'gutter-lg': '24px',
+        'gutter-xl': '32px',
+        'section': '64px',
+        'page-margin': '32px',
+      },
+      fontFamily: {
+        'display': ['"Barlow Condensed"', 'sans-serif'],
+        'headline': ['"Barlow Condensed"', 'sans-serif'],
+        'title': ['"Barlow Condensed"', 'sans-serif'],
+        'body': ['"Inter"', 'sans-serif'],
+        'label': ['"Inter"', 'sans-serif'],
+      },
+      fontSize: {
+        'display-xl': ['88px', { lineHeight: '84px', letterSpacing: '-2px', fontWeight: '800' }],
+        'display-xl-mobile': ['32px', { lineHeight: '34px', letterSpacing: '-0.5px', fontWeight: '800' }],
+        'display-lg': ['64px', { lineHeight: '62px', letterSpacing: '-1.5px', fontWeight: '800' }],
+        'display-lg-mobile': ['32px', { lineHeight: '34px', letterSpacing: '-0.5px', fontWeight: '800' }],
+        'headline-lg': ['44px', { lineHeight: '46px', letterSpacing: '-0.75px', fontWeight: '700' }],
+        'headline-lg-mobile': ['28px', { lineHeight: '30px', letterSpacing: '-0.25px', fontWeight: '700' }],
+        'headline-md': ['32px', { lineHeight: '36px', letterSpacing: '-0.25px', fontWeight: '700' }],
+        'title-lg': ['24px', { lineHeight: '28px', letterSpacing: '0.25px', fontWeight: '700' }],
+        'title-md': ['16px', { lineHeight: '22px', letterSpacing: '0px', fontWeight: '600' }],
+        'body-lg': ['16px', { lineHeight: '24px', letterSpacing: '0px', fontWeight: '400' }],
+        'body-md': ['14px', { lineHeight: '22px', letterSpacing: '0px', fontWeight: '400' }],
+        'label-lg': ['13px', { lineHeight: '16px', letterSpacing: '0.75px', fontWeight: '600' }],
+        'label-sm': ['11px', { lineHeight: '14px', letterSpacing: '1px', fontWeight: '500' }],
+      },
+      transitionDuration: {
+        'state-change': '150ms',
+        'image-hover': '280ms',
+        'drawer-enter': '240ms',
+      },
+      transitionDelay: {
+        'state-change': '0ms',
+        'image-hover': '0ms',
+        'drawer-enter': '0ms',
+      },
+      transitionTimingFunction: {
+        'state-change': 'cubic-bezier(0.2, 0, 0, 1)',
+        'image-hover': 'cubic-bezier(0.2, 0, 0, 1)',
+        'drawer-enter': 'cubic-bezier(0.2, 0, 0, 1)',
+      },
+    },
+  },
+};
+if (typeof module !== 'undefined') module.exports = globalThis.tailwind.config;
+</script>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&amp;family=Inter:wght@400;500;600;700&amp;family=Spline+Sans+Mono:wght@500&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=block" rel="stylesheet">
+  <style>.material-symbols-outlined, .material-symbols-rounded, .material-symbols-sharp, .material-icons { display: inline-block; width: 1em; height: 1em; line-height: 1 !important; box-sizing: content-box; overflow: hidden; white-space: nowrap; direction: ltr; vertical-align: middle; }</style>
+</head>
+<body class="bg-surface text-on-surface font-body antialiased selection:bg-accent selection:text-on-accent">
+
+  <div class="min-h-[1024px] flex flex-col bg-surface" data-stitch-vh="min-h-[1024px]===min-h-screen">
+    <div class="bg-surface-container-low border-b border-outline px-gutter-md md:px-page-margin py-2 flex items-center justify-between gap-gutter-md">
+      <div class="flex items-center gap-gutter-sm">
+        <span data-component-id="badge-dot" data-component-type="badge" data-component-variant="dot" role="status" aria-label="Live release" class="inline-block w-2 h-2 bg-accent"></span>
+        <span data-design-text-token="label-sm" class="font-label text-label-sm uppercase text-on-surface tracking-widest">DROP 04 // NOW LIVE — WORLDWIDE DISPATCH</span>
+      </div>
+      <span data-design-text-token="label-sm" class="hidden sm:inline font-label text-label-sm uppercase text-on-surface-variant tracking-widest">MEMBER ID // DR-0492</span>
+    </div>
+
+    <header class="sticky top-0 z-40 bg-surface border-b border-outline">
+      <div class="max-w-[1440px] mx-auto px-gutter-md md:px-page-margin h-16 flex items-center justify-between gap-gutter-lg">
+        <a href="../home/DuskRiotHome.html" class="font-display text-headline-md uppercase tracking-tight text-on-surface hover:text-accent">DUSK RIOT</a>
+        <nav aria-label="Primary navigation" class="hidden md:flex items-center gap-gutter-xl">
+          <a href="../shop/ShopListing.html" data-design-text-token="label-lg" class="font-label text-label-lg uppercase tracking-wider text-on-surface hover:text-accent py-1">Shop All</a>
+          <a href="../category/CategoryListing.html" data-design-text-token="label-lg" class="font-label text-label-lg uppercase tracking-wider text-on-surface hover:text-accent py-1">Categories</a>
+          <a href="../home/DuskRiotHome.html#lookbook" data-design-text-token="label-lg" class="font-label text-label-lg uppercase tracking-wider text-on-surface hover:text-accent py-1">Lookbook</a>
+          <a href="../account/CustomerAccount.html" data-design-text-token="label-lg" class="font-label text-label-lg uppercase tracking-wider text-accent border-b-2 border-accent py-1">Account</a>
+        </nav>
+        <div class="flex items-center gap-gutter-sm">
+          <a href="../search/SearchResults.html" aria-label="Search catalog" class="inline-flex items-center justify-center w-10 h-10 bg-surface text-on-surface border border-outline hover:border-primary hover:text-accent">
+            <span class="material-symbols-outlined text-[20px]" aria-hidden="true">search</span>
+          </a>
+          <a href="../cart/ShoppingCart.html" aria-label="Shopping bag with 2 items" class="inline-flex items-center gap-gutter-sm h-10 px-gutter-md bg-surface-container-low text-on-surface border border-outline hover:border-primary">
+            <span class="material-symbols-outlined text-[18px]" aria-hidden="true">shopping_bag</span>
+            <span data-design-text-token="label-lg" class="hidden sm:inline font-label text-label-lg uppercase tracking-wider">Bag</span>
+            <span data-component-id="badge-numeric" data-component-type="badge" data-component-variant="numeric" aria-hidden="true" class="inline-flex items-center justify-center bg-accent text-on-accent font-label text-label-sm px-1.5 py-0.5 tabular-nums">
+              <span data-design-text-token="label-sm">02</span>
+            </span>
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <main class="flex-1 bg-surface">
+      <section class="max-w-[1440px] mx-auto px-gutter-md md:px-page-margin py-section">
+        <div class="border-b border-outline pb-gutter-lg mb-gutter-xl flex flex-col gap-gutter-xs">
+          <span data-design-text-token="label-sm" class="font-label text-label-sm uppercase text-accent tracking-widest">KAI VANCE // ARCHIVE</span>
+          <h1 data-design-text-token="display-lg" class="font-display text-display-lg-mobile md:text-display-lg uppercase text-on-surface">ORDER HISTORY</h1>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter-xl items-start">
+          <nav aria-label="Account sections" class="lg:col-span-3 bg-surface-container border border-outline flex flex-col">
+            <a href="../account/CustomerAccount.html" class="p-gutter-md font-label text-label-lg uppercase text-on-surface hover:text-accent border-b border-outline">Profile &amp; Address</a>
+            <a href="#orders-list" class="p-gutter-md font-label text-label-lg uppercase text-accent bg-surface-container-low border-b border-outline">Order History</a>
+            <a href="../tracking/OrderTracking.html" class="p-gutter-md font-label text-label-lg uppercase text-on-surface hover:text-accent border-b border-outline">Track Active Order</a>
+            <a href="../wishlist/Wishlist.html" class="p-gutter-md font-label text-label-lg uppercase text-on-surface hover:text-accent">Saved Wishlist (03)</a>
+          </nav>
+
+          <div id="orders-list" class="lg:col-span-9 flex flex-col gap-gutter-md">
+            <!-- Order 1 -->
+            <article class="bg-surface-container border border-outline p-gutter-lg flex flex-col gap-gutter-md">
+              <div class="flex flex-wrap items-center justify-between gap-gutter-md border-b border-outline pb-gutter-md">
+                <div class="flex flex-col gap-gutter-xs">
+                  <span data-design-text-token="label-sm" class="font-label text-label-sm uppercase text-accent tabular-nums">ORDER #DR-90482</span>
+                  <span data-design-text-token="body-md" class="font-body text-body-md text-on-surface-variant">Placed Nov 18, 2026 // 2 Items</span>
+                </div>
+                <div class="flex items-center gap-gutter-md">
+                  <span data-design-text-token="label-sm" class="bg-surface text-accent border border-accent font-label text-label-sm uppercase px-2.5 py-1">IN TRANSIT</span>
+                  <span data-design-text-token="headline-md" class="font-headline text-headline-md text-on-surface tabular-nums">$240.00</span>
+                </div>
+              </div>
+              <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-gutter-md">
+                <div class="flex items-center gap-gutter-md">
+                  <img src="https://lh3.googleusercontent.com/aida/ALJJyrBfwsSIT28wsgq92Q_bPgaYHYIeoQoIa9K3FbfAEqu3GZzyfu7Z7V4iQsweh9xccmURlopZqqHgv_LV-TVvE4xfbF3XfgXP1DM0VoIsah8PRXS4RUYgLjvPeZY1-3zVW3FziuMWWqJq0D6KQpXcXmZl5cCxu8NxM1zblbE5V94OMcU0JlW0vU6QP7TjaeGVlUgPhvqs6hEVN4LDNyYL0FaZh3iLrVXai0FcA71lZ1nISn8O0XDU" alt="Obsidian Hoodie" class="w-14 h-16 object-cover border border-outline">
+                  <img src="https://lh3.googleusercontent.com/aida/ALJJyrBlQXRxKDGWRm8dklBPo2D7RyYO0W8YvhHTviDDZOzJcCjYiKzCfWLBAOU7n0eqOvnbMQIUsxiBb1xw-liQou3yOrAC2RhofPA8epMfwFxgTnAkjsC1o4CqY2QaYZAMNyT8NVPQPAY9RBWBpNq8skJbN2TZAiCqOLMt71hVwYJZvk-VRXn1ciULsgZoZTq_utHEnfVhMIHa5V2qCg8O3d-clL6pCior3VWyVRieSHgpiT5Q" alt="Static Boxy Tee" class="w-14 h-16 object-cover border border-outline">
+                  <span data-design-text-token="body-md" class="font-body text-body-md text-on-surface">Obsidian Hoodie (M), Static Boxy Tee (L)</span>
+                </div>
+                <a href="../tracking/OrderTracking.html" class="inline-flex items-center justify-center bg-primary text-on-primary font-label text-label-lg uppercase tracking-wider px-gutter-lg py-2.5 border border-primary hover:bg-accent hover:text-on-accent hover:border-accent">
+                  <span data-design-text-token="label-lg">Track Parcel</span>
+                </a>
+              </div>
+            </article>
+
+            <!-- Order 2 -->
+            <article class="bg-surface-container border border-outline p-gutter-lg flex flex-col gap-gutter-md">
+              <div class="flex flex-wrap items-center justify-between gap-gutter-md border-b border-outline pb-gutter-md">
+                <div class="flex flex-col gap-gutter-xs">
+                  <span data-design-text-token="label-sm" class="font-label text-label-sm uppercase text-on-surface-variant tabular-nums">ORDER #DR-88120</span>
+                  <span data-design-text-token="body-md" class="font-body text-body-md text-on-surface-variant">Placed Oct 04, 2026 // 1 Item</span>
+                </div>
+                <div class="flex items-center gap-gutter-md">
+                  <span data-design-text-token="label-sm" class="bg-surface-container-low text-on-surface border border-outline font-label text-label-sm uppercase px-2.5 py-1">DELIVERED</span>
+                  <span data-design-text-token="headline-md" class="font-headline text-headline-md text-on-surface tabular-nums">$240.00</span>
+                </div>
+              </div>
+              <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-gutter-md">
+                <div class="flex items-center gap-gutter-md">
+                  <img src="https://lh3.googleusercontent.com/aida/ALJJyrCfBZ4wBumA7lpRRDogV29674gEpHFi2Nofoy5dtAcx47KSoDHtvt5BFNflOD2PaGHokECv3a31WaCnWhDTf1iBZUA_IW9yo6BkyOgF7AgqZC-BeBMR0SGqcC4ZL5DAYw0tOwkr21tR7AsDd79M1osfk0gP9Tj_gdLPlVaRMNdIZTblPWc9FmWAaTLeeua54aI__LQ-kkToe9pBskKahhiFO-czUtEfQyxqquqOtZNS36ymmAGK" alt="Nocturne Bomber" class="w-14 h-16 object-cover border border-outline">
+                  <span data-design-text-token="body-md" class="font-body text-body-md text-on-surface">Nocturne Bomber (L)</span>
+                </div>
+                <a href="../product/ProductDetails.html" class="inline-flex items-center justify-center bg-surface-container-low text-on-surface font-label text-label-lg uppercase tracking-wider px-gutter-lg py-2.5 border border-outline hover:border-primary">
+                  <span data-design-text-token="label-lg">View Item</span>
+                </a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="bg-surface border-t border-outline">
+      <div class="max-w-[1440px] mx-auto px-gutter-md md:px-page-margin py-gutter-xl flex flex-col sm:flex-row items-start sm:items-center justify-between gap-gutter-md">
+        <span class="font-display text-headline-md uppercase text-on-surface">DUSK RIOT</span>
+        <span data-design-text-token="label-sm" class="font-label text-label-sm uppercase text-on-surface-variant">© 2026 DUSK RIOT. WEAR YOUR REBELLION.</span>
+      </div>
+    </footer>
+  </div>
+
+
+</body></html>

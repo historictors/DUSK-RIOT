@@ -1,0 +1,223 @@
+<!DOCTYPE html><html lang="en"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DUSK RIOT — Search Results</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script id="tailwind-config">/** @type {import('tailwindcss').Config} */
+globalThis.tailwind = globalThis.tailwind || {};
+globalThis.tailwind.config = {
+  darkMode: 'class',
+  theme: {
+    extend: {
+      colors: {
+        'surface': '#0B0B0B',
+        'on-surface': '#F5F5F0',
+        'surface-container-low': '#151515',
+        'surface-container': '#191919',
+        'surface-container-high': '#222222',
+        'on-surface-variant': '#A1A1A1',
+        'primary': '#F5F5F0',
+        'on-primary': '#0B0B0B',
+        'accent': '#C7FF3D',
+        'on-accent': '#0B0B0B',
+        'outline': '#292929',
+        'outline-variant': '#1F1F1F',
+        'error': '#FF5449',
+        'on-error': '#0B0B0B',
+      },
+      borderRadius: {
+        'none': '0px',
+        'sm': '2px',
+        'DEFAULT': '0px',
+        'md': '2px',
+        'full': '9999px',
+      },
+      spacing: {
+        'gutter-xs': '4px',
+        'gutter-sm': '8px',
+        'gutter-md': '16px',
+        'gutter-lg': '24px',
+        'gutter-xl': '32px',
+        'section': '64px',
+        'page-margin': '32px',
+      },
+      fontFamily: {
+        'display': ['"Barlow Condensed"', 'sans-serif'],
+        'headline': ['"Barlow Condensed"', 'sans-serif'],
+        'title': ['"Barlow Condensed"', 'sans-serif'],
+        'body': ['"Inter"', 'sans-serif'],
+        'label': ['"Inter"', 'sans-serif'],
+      },
+      fontSize: {
+        'display-xl': ['88px', { lineHeight: '84px', letterSpacing: '-2px', fontWeight: '800' }],
+        'display-xl-mobile': ['32px', { lineHeight: '34px', letterSpacing: '-0.5px', fontWeight: '800' }],
+        'display-lg': ['64px', { lineHeight: '62px', letterSpacing: '-1.5px', fontWeight: '800' }],
+        'display-lg-mobile': ['32px', { lineHeight: '34px', letterSpacing: '-0.5px', fontWeight: '800' }],
+        'headline-lg': ['44px', { lineHeight: '46px', letterSpacing: '-0.75px', fontWeight: '700' }],
+        'headline-lg-mobile': ['28px', { lineHeight: '30px', letterSpacing: '-0.25px', fontWeight: '700' }],
+        'headline-md': ['32px', { lineHeight: '36px', letterSpacing: '-0.25px', fontWeight: '700' }],
+        'title-lg': ['24px', { lineHeight: '28px', letterSpacing: '0.25px', fontWeight: '700' }],
+        'title-md': ['16px', { lineHeight: '22px', letterSpacing: '0px', fontWeight: '600' }],
+        'body-lg': ['16px', { lineHeight: '24px', letterSpacing: '0px', fontWeight: '400' }],
+        'body-md': ['14px', { lineHeight: '22px', letterSpacing: '0px', fontWeight: '400' }],
+        'label-lg': ['13px', { lineHeight: '16px', letterSpacing: '0.75px', fontWeight: '600' }],
+        'label-sm': ['11px', { lineHeight: '14px', letterSpacing: '1px', fontWeight: '500' }],
+      },
+      transitionDuration: {
+        'state-change': '150ms',
+        'image-hover': '280ms',
+        'drawer-enter': '240ms',
+      },
+      transitionDelay: {
+        'state-change': '0ms',
+        'image-hover': '0ms',
+        'drawer-enter': '0ms',
+      },
+      transitionTimingFunction: {
+        'state-change': 'cubic-bezier(0.2, 0, 0, 1)',
+        'image-hover': 'cubic-bezier(0.2, 0, 0, 1)',
+        'drawer-enter': 'cubic-bezier(0.2, 0, 0, 1)',
+      },
+    },
+  },
+};
+if (typeof module !== 'undefined') module.exports = globalThis.tailwind.config;
+</script>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&amp;family=Inter:wght@400;500;600;700&amp;family=Spline+Sans+Mono:wght@500&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=block" rel="stylesheet">
+  <style>.material-symbols-outlined, .material-symbols-rounded, .material-symbols-sharp, .material-icons { display: inline-block; width: 1em; height: 1em; line-height: 1 !important; box-sizing: content-box; overflow: hidden; white-space: nowrap; direction: ltr; vertical-align: middle; }</style>
+</head>
+<body class="bg-surface text-on-surface font-body antialiased selection:bg-accent selection:text-on-accent">
+
+  <div class="min-h-[1024px] flex flex-col bg-surface" data-stitch-vh="min-h-[1024px]===min-h-screen">
+    <!-- Top Utility Ticker -->
+    <div class="bg-surface-container-low border-b border-outline px-gutter-md md:px-page-margin py-2 flex items-center justify-between gap-gutter-md">
+      <div class="flex items-center gap-gutter-sm">
+        <span data-component-id="badge-dot" data-component-type="badge" data-component-variant="dot" role="status" aria-label="Live release" class="inline-block w-2 h-2 bg-accent"></span>
+        <span data-design-text-token="label-sm" class="font-label text-label-sm uppercase text-on-surface tracking-widest">DROP 04 // NOW LIVE — WORLDWIDE DISPATCH</span>
+      </div>
+      <span data-design-text-token="label-sm" class="hidden sm:inline font-label text-label-sm uppercase text-on-surface-variant tracking-widest">FREE EXPRESS SHIPPING OVER $200</span>
+    </div>
+
+    <!-- Primary Header -->
+    <header class="sticky top-0 z-40 bg-surface border-b border-outline">
+      <div class="max-w-[1440px] mx-auto px-gutter-md md:px-page-margin h-16 flex items-center justify-between gap-gutter-lg">
+        <a href="../home/DuskRiotHome.html" class="font-display text-headline-md uppercase tracking-tight text-on-surface hover:text-accent">DUSK RIOT</a>
+        <nav aria-label="Primary navigation" class="hidden md:flex items-center gap-gutter-xl">
+          <a href="../shop/ShopListing.html" data-design-text-token="label-lg" class="font-label text-label-lg uppercase tracking-wider text-on-surface hover:text-accent py-1">Shop All</a>
+          <a href="../category/CategoryListing.html" data-design-text-token="label-lg" class="font-label text-label-lg uppercase tracking-wider text-on-surface hover:text-accent py-1">Categories</a>
+          <a href="../home/DuskRiotHome.html#lookbook" data-design-text-token="label-lg" class="font-label text-label-lg uppercase tracking-wider text-on-surface hover:text-accent py-1">Lookbook</a>
+          <a href="../account/CustomerAccount.html" data-design-text-token="label-lg" class="font-label text-label-lg uppercase tracking-wider text-on-surface-variant hover:text-on-surface py-1">Account</a>
+        </nav>
+        <div class="flex items-center gap-gutter-sm">
+          <a href="../wishlist/Wishlist.html" aria-label="Saved wishlist" class="inline-flex items-center justify-center w-10 h-10 bg-surface text-on-surface border border-outline hover:border-primary hover:text-accent">
+            <span class="material-symbols-outlined text-[20px]" aria-hidden="true">favorite</span>
+          </a>
+          <a href="../cart/ShoppingCart.html" aria-label="Shopping bag with 2 items" class="inline-flex items-center gap-gutter-sm h-10 px-gutter-md bg-surface-container-low text-on-surface border border-outline hover:border-primary">
+            <span class="material-symbols-outlined text-[18px]" aria-hidden="true">shopping_bag</span>
+            <span data-design-text-token="label-lg" class="hidden sm:inline font-label text-label-lg uppercase tracking-wider">Bag</span>
+            <span data-component-id="badge-numeric" data-component-type="badge" data-component-variant="numeric" aria-hidden="true" class="inline-flex items-center justify-center bg-accent text-on-accent font-label text-label-sm px-1.5 py-0.5 tabular-nums">
+              <span data-design-text-token="label-sm">02</span>
+            </span>
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <main class="flex-1 bg-surface">
+      <!-- Search Input Band -->
+      <section class="border-b border-outline bg-surface-container-low">
+        <div class="max-w-[1440px] mx-auto px-gutter-md md:px-page-margin py-gutter-xl flex flex-col gap-gutter-md">
+          <span data-design-text-token="label-sm" class="font-label text-label-sm uppercase text-accent tracking-widest">CATALOG SEARCH</span>
+          <form class="flex items-stretch border border-outline bg-surface focus-within:border-accent">
+            <label for="search-input" class="sr-only">Search garments</label>
+            <span class="material-symbols-outlined text-[22px] text-on-surface-variant px-gutter-md flex items-center" aria-hidden="true">search</span>
+            <input id="search-input" type="search" value="OBSIDIAN" placeholder="SEARCH GARMENTS, SKUS, FABRICS..." class="flex-1 bg-transparent text-on-surface font-headline text-headline-md uppercase tracking-wide py-3 pr-gutter-md border-0 focus:ring-0 focus:outline-none">
+            <button type="submit" class="bg-primary text-on-primary font-label text-label-lg uppercase tracking-wider px-gutter-xl border-l border-outline hover:bg-accent hover:text-on-accent transition-colors duration-state-change">
+              <span data-design-text-token="label-lg">Search</span>
+            </button>
+          </form>
+
+          <div class="flex flex-wrap items-center justify-between gap-gutter-md">
+            <div class="flex flex-wrap items-center gap-gutter-xs">
+              <span data-design-text-token="label-sm" class="font-label text-label-sm uppercase text-on-surface-variant mr-1">Trending:</span>
+              <button type="button" class="bg-surface text-on-surface font-label text-label-sm uppercase px-2.5 py-1 border border-outline hover:border-accent">480GSM</button>
+              <button type="button" class="bg-surface text-on-surface font-label text-label-sm uppercase px-2.5 py-1 border border-outline hover:border-accent">Boxy Tee</button>
+              <button type="button" class="bg-surface text-on-surface font-label text-label-sm uppercase px-2.5 py-1 border border-outline hover:border-accent">Ripstop</button>
+            </div>
+            <span data-design-text-token="label-sm" class="font-label text-label-sm uppercase text-accent tabular-nums">03 RESULTS FOR &#34;OBSIDIAN&#34;</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Results Grid -->
+      <section class="max-w-[1440px] mx-auto px-gutter-md md:px-page-margin py-section">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-gutter-lg items-stretch">
+          <article class="group bg-surface-container border border-outline flex flex-col justify-between hover:border-primary">
+            <a href="../product/ProductDetails.html" class="flex flex-col flex-1">
+              <div class="aspect-[3/4] bg-surface-container-low overflow-hidden border-b border-outline">
+                <img src="https://lh3.googleusercontent.com/aida/ALJJyrBfwsSIT28wsgq92Q_bPgaYHYIeoQoIa9K3FbfAEqu3GZzyfu7Z7V4iQsweh9xccmURlopZqqHgv_LV-TVvE4xfbF3XfgXP1DM0VoIsah8PRXS4RUYgLjvPeZY1-3zVW3FziuMWWqJq0D6KQpXcXmZl5cCxu8NxM1zblbE5V94OMcU0JlW0vU6QP7TjaeGVlUgPhvqs6hEVN4LDNyYL0FaZh3iLrVXai0FcA71lZ1nISn8O0XDU" alt="Obsidian Hoodie" class="w-full h-full object-cover transition-transform duration-image-hover group-hover:scale-[1.03]">
+              </div>
+              <div class="p-gutter-md flex flex-col gap-gutter-xs">
+                <div class="flex items-center justify-between gap-gutter-sm">
+                  <h2 data-design-text-token="title-md" class="font-body text-title-md text-on-surface uppercase group-hover:text-accent">Obsidian Hoodie</h2>
+                  <span data-design-text-token="label-sm" class="font-label text-label-sm text-on-surface tabular-nums shrink-0">$165</span>
+                </div>
+                <p data-design-text-token="body-md" class="font-body text-body-md text-on-surface-variant">480GSM French Terry</p>
+              </div>
+            </a>
+            <div class="p-gutter-md pt-0">
+              <button type="button" class="w-full bg-surface-container-low text-on-surface font-label text-label-lg uppercase tracking-wider py-2.5 px-gutter-md border border-outline hover:bg-accent hover:text-on-accent hover:border-accent"><span data-design-text-token="label-lg">Quick Add</span></button>
+            </div>
+          </article>
+
+          <article class="group bg-surface-container border border-outline flex flex-col justify-between hover:border-primary">
+            <a href="../product/ProductDetails.html" class="flex flex-col flex-1">
+              <div class="aspect-[3/4] bg-surface-container-low overflow-hidden border-b border-outline">
+                <img src="https://lh3.googleusercontent.com/aida/ALJJyrBTCN-q6uADvKb_Bb1kkL6s-ak03rMuVkP6CvAKGKvYTzpjMJbX3A0uT_YGE-GCqQzg6Trk5jE2w8nI1hcMAZQKoHffaSwMXq4WuJ5uo2TJcOPAsX-rZU2uWcVOJoMx5g1IieeG2jU0EQraNYJua6wNCCDj8VHfDT0w3YnCAoHOGJU497ftovVcV9Vrg_3hgZFV5tPyJsFdAY7LG8YeetYkDWht-glyWVXXSbkFNB8tTv-ELlnd" alt="Obsidian Beanie" class="w-full h-full object-cover transition-transform duration-image-hover group-hover:scale-[1.03]">
+              </div>
+              <div class="p-gutter-md flex flex-col gap-gutter-xs">
+                <div class="flex items-center justify-between gap-gutter-sm">
+                  <h2 data-design-text-token="title-md" class="font-body text-title-md text-on-surface uppercase group-hover:text-accent">Obsidian Beanie</h2>
+                  <span data-design-text-token="label-sm" class="font-label text-label-sm text-on-surface tabular-nums shrink-0">$42</span>
+                </div>
+                <p data-design-text-token="body-md" class="font-body text-body-md text-on-surface-variant">Merino Ribbed Knit</p>
+              </div>
+            </a>
+            <div class="p-gutter-md pt-0">
+              <button type="button" class="w-full bg-surface-container-low text-on-surface font-label text-label-lg uppercase tracking-wider py-2.5 px-gutter-md border border-outline hover:bg-accent hover:text-on-accent hover:border-accent"><span data-design-text-token="label-lg">Quick Add</span></button>
+            </div>
+          </article>
+
+          <article class="group bg-surface-container border border-outline flex flex-col justify-between hover:border-primary">
+            <a href="../product/ProductDetails.html" class="flex flex-col flex-1">
+              <div class="aspect-[3/4] bg-surface-container-low overflow-hidden border-b border-outline">
+                <img src="https://lh3.googleusercontent.com/aida/ALJJyrCaS9-tnngtFyFl-m0AE6X-VBq9LOiFjXyHxXoEJaBC60uOI_O3QtcICqqpOo2lCQdsvVS2SXzxVczWbxpLghIP2Hd7lPECOSTpkhVqeQyxs3-bAeJudukFsIE-m2HfXB7uojC4CFvJE0qdhCuHE441aURY4ROaFml5CSWJee1aLg4QciWaDd2WoAEfYp0x2jZOnXuyCulsTH0qQQNNr5m2P9rjC4YFKUVQrOOWHA_CpfxpUw" alt="Obsidian Gilet" class="w-full h-full object-cover transition-transform duration-image-hover group-hover:scale-[1.03]">
+              </div>
+              <div class="p-gutter-md flex flex-col gap-gutter-xs">
+                <div class="flex items-center justify-between gap-gutter-sm">
+                  <h2 data-design-text-token="title-md" class="font-body text-title-md text-on-surface uppercase group-hover:text-accent">Obsidian Gilet</h2>
+                  <span data-design-text-token="label-sm" class="font-label text-label-sm text-on-surface tabular-nums shrink-0">$180</span>
+                </div>
+                <p data-design-text-token="body-md" class="font-body text-body-md text-on-surface-variant">Cordura Utility Vest</p>
+              </div>
+            </a>
+            <div class="p-gutter-md pt-0">
+              <button type="button" class="w-full bg-surface-container-low text-on-surface font-label text-label-lg uppercase tracking-wider py-2.5 px-gutter-md border border-outline hover:bg-accent hover:text-on-accent hover:border-accent"><span data-design-text-token="label-lg">Quick Add</span></button>
+            </div>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-surface border-t border-outline">
+      <div class="max-w-[1440px] mx-auto px-gutter-md md:px-page-margin py-gutter-xl flex flex-col sm:flex-row items-start sm:items-center justify-between gap-gutter-md">
+        <span class="font-display text-headline-md uppercase text-on-surface">DUSK RIOT</span>
+        <span data-design-text-token="label-sm" class="font-label text-label-sm uppercase text-on-surface-variant">© 2026 DUSK RIOT. WEAR YOUR REBELLION.</span>
+      </div>
+    </footer>
+  </div>
+
+
+</body></html>

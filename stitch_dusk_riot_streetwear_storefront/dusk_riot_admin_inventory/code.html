@@ -1,0 +1,212 @@
+<!DOCTYPE html><html lang="en"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DUSK RIOT Admin — Inventory Management</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script id="tailwind-config">/** @type {import('tailwindcss').Config} */
+globalThis.tailwind = globalThis.tailwind || {};
+globalThis.tailwind.config = {
+  darkMode: 'class',
+  theme: {
+    extend: {
+      colors: {
+        'surface': '#0B0B0B',
+        'on-surface': '#F5F5F0',
+        'surface-container-low': '#151515',
+        'surface-container': '#191919',
+        'surface-container-high': '#222222',
+        'on-surface-variant': '#A1A1A1',
+        'primary': '#F5F5F0',
+        'on-primary': '#0B0B0B',
+        'accent': '#C7FF3D',
+        'on-accent': '#0B0B0B',
+        'outline': '#292929',
+        'outline-variant': '#1F1F1F',
+        'error': '#FF5449',
+        'on-error': '#0B0B0B',
+      },
+      borderRadius: {
+        'none': '0px',
+        'sm': '2px',
+        'DEFAULT': '0px',
+        'md': '2px',
+        'full': '9999px',
+      },
+      spacing: {
+        'gutter-xs': '4px',
+        'gutter-sm': '8px',
+        'gutter-md': '16px',
+        'gutter-lg': '24px',
+        'gutter-xl': '32px',
+        'section': '64px',
+        'page-margin': '32px',
+      },
+      fontFamily: {
+        'display': ['"Barlow Condensed"', 'sans-serif'],
+        'headline': ['"Barlow Condensed"', 'sans-serif'],
+        'title': ['"Barlow Condensed"', 'sans-serif'],
+        'body': ['"Inter"', 'sans-serif'],
+        'label': ['"Inter"', 'sans-serif'],
+      },
+      fontSize: {
+        'display-xl': ['88px', { lineHeight: '84px', letterSpacing: '-2px', fontWeight: '800' }],
+        'display-xl-mobile': ['32px', { lineHeight: '34px', letterSpacing: '-0.5px', fontWeight: '800' }],
+        'display-lg': ['64px', { lineHeight: '62px', letterSpacing: '-1.5px', fontWeight: '800' }],
+        'display-lg-mobile': ['32px', { lineHeight: '34px', letterSpacing: '-0.5px', fontWeight: '800' }],
+        'headline-lg': ['44px', { lineHeight: '46px', letterSpacing: '-0.75px', fontWeight: '700' }],
+        'headline-lg-mobile': ['28px', { lineHeight: '30px', letterSpacing: '-0.25px', fontWeight: '700' }],
+        'headline-md': ['32px', { lineHeight: '36px', letterSpacing: '-0.25px', fontWeight: '700' }],
+        'title-lg': ['24px', { lineHeight: '28px', letterSpacing: '0.25px', fontWeight: '700' }],
+        'title-md': ['16px', { lineHeight: '22px', letterSpacing: '0px', fontWeight: '600' }],
+        'body-lg': ['16px', { lineHeight: '24px', letterSpacing: '0px', fontWeight: '400' }],
+        'body-md': ['14px', { lineHeight: '22px', letterSpacing: '0px', fontWeight: '400' }],
+        'label-lg': ['13px', { lineHeight: '16px', letterSpacing: '0.75px', fontWeight: '600' }],
+        'label-sm': ['11px', { lineHeight: '14px', letterSpacing: '1px', fontWeight: '500' }],
+      },
+      transitionDuration: {
+        'state-change': '150ms',
+        'image-hover': '280ms',
+        'drawer-enter': '240ms',
+      },
+      transitionDelay: {
+        'state-change': '0ms',
+        'image-hover': '0ms',
+        'drawer-enter': '0ms',
+      },
+      transitionTimingFunction: {
+        'state-change': 'cubic-bezier(0.2, 0, 0, 1)',
+        'image-hover': 'cubic-bezier(0.2, 0, 0, 1)',
+        'drawer-enter': 'cubic-bezier(0.2, 0, 0, 1)',
+      },
+    },
+  },
+};
+if (typeof module !== 'undefined') module.exports = globalThis.tailwind.config;
+</script>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&amp;family=Inter:wght@400;500;600;700&amp;family=Spline+Sans+Mono:wght@500&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=block" rel="stylesheet">
+  <style>.material-symbols-outlined, .material-symbols-rounded, .material-symbols-sharp, .material-icons { display: inline-block; width: 1em; height: 1em; line-height: 1 !important; box-sizing: content-box; overflow: hidden; white-space: nowrap; direction: ltr; vertical-align: middle; }</style>
+</head>
+<body class="bg-surface text-on-surface font-body antialiased selection:bg-accent selection:text-on-accent">
+
+  <div class="min-h-[1024px] flex bg-surface" data-stitch-vh="min-h-[1024px]===min-h-screen">
+    <aside class="hidden lg:flex w-64 min-h-[1024px] bg-surface-container-low border-r border-outline flex-col justify-between shrink-0" data-stitch-vh="min-h-[1024px]===min-h-screen">
+      <div class="flex flex-col">
+        <div class="h-16 px-gutter-lg border-b border-outline flex items-center justify-between">
+          <span class="font-display text-headline-md uppercase text-on-surface">DUSK RIOT</span>
+          <span data-design-text-token="label-sm" class="bg-accent text-on-accent font-label text-label-sm uppercase px-1.5 py-0.5">OPS</span>
+        </div>
+        <nav aria-label="Admin navigation" class="flex flex-col p-gutter-md gap-gutter-xs">
+          <a href="../admin-dashboard/AdminDashboard.html" class="flex items-center gap-gutter-sm px-gutter-md py-3 text-on-surface hover:bg-surface-container hover:text-accent border border-transparent font-label text-label-lg uppercase tracking-wider">
+            <span class="material-symbols-outlined text-[18px]" aria-hidden="true">dashboard</span>
+            <span>Overview</span>
+          </a>
+          <a href="../admin-products/AdminProducts.html" class="flex items-center gap-gutter-sm px-gutter-md py-3 text-on-surface hover:bg-surface-container hover:text-accent border border-transparent font-label text-label-lg uppercase tracking-wider">
+            <span class="material-symbols-outlined text-[18px]" aria-hidden="true">checkroom</span>
+            <span>Products</span>
+          </a>
+          <a href="#admin-inventory" class="flex items-center gap-gutter-sm px-gutter-md py-3 bg-surface-container border border-accent text-accent font-label text-label-lg uppercase tracking-wider">
+            <span class="material-symbols-outlined text-[18px]" aria-hidden="true">inventory_2</span>
+            <span>Inventory</span>
+          </a>
+          <a href="../admin-orders/AdminOrders.html" class="flex items-center gap-gutter-sm px-gutter-md py-3 text-on-surface hover:bg-surface-container hover:text-accent border border-transparent font-label text-label-lg uppercase tracking-wider">
+            <span class="material-symbols-outlined text-[18px]" aria-hidden="true">local_shipping</span>
+            <span>Orders</span>
+          </a>
+        </nav>
+      </div>
+      <div class="p-gutter-md border-t border-outline flex flex-col gap-gutter-sm">
+        <a href="../home/DuskRiotHome.html" class="flex items-center justify-between px-gutter-md py-2.5 bg-surface-container border border-outline text-on-surface hover:border-primary font-label text-label-sm uppercase">
+          <span>View Storefront</span>
+          <span class="material-symbols-outlined text-[16px]" aria-hidden="true">open_in_new</span>
+        </a>
+        <span data-design-text-token="label-sm" class="font-label text-label-sm uppercase text-on-surface-variant px-gutter-xs">WAREHOUSE // BK-02</span>
+      </div>
+    </aside>
+
+    <div class="flex-1 flex flex-col min-w-0">
+      <header class="h-16 bg-surface border-b border-outline px-gutter-md md:px-gutter-xl flex items-center justify-between gap-gutter-md">
+        <h1 data-design-text-token="headline-md" class="font-headline text-headline-md uppercase text-on-surface">INVENTORY MATRIX</h1>
+        <span data-design-text-token="label-sm" class="font-label text-label-sm uppercase text-error border border-error px-gutter-md py-1.5">02 CRITICAL SKUS</span>
+      </header>
+
+      <main id="admin-inventory" class="flex-1 p-gutter-md md:p-gutter-xl flex flex-col gap-gutter-lg">
+        <div class="bg-surface-container border border-outline overflow-x-auto">
+          <table class="w-full text-left border-collapse">
+            <thead>
+              <tr class="border-b border-outline bg-surface-container-low">
+                <th class="p-gutter-md font-label text-label-sm uppercase text-on-surface-variant">SKU / Garment</th>
+                <th class="p-gutter-md font-label text-label-sm uppercase text-on-surface-variant text-center">S</th>
+                <th class="p-gutter-md font-label text-label-sm uppercase text-on-surface-variant text-center">M</th>
+                <th class="p-gutter-md font-label text-label-sm uppercase text-on-surface-variant text-center">L</th>
+                <th class="p-gutter-md font-label text-label-sm uppercase text-on-surface-variant text-center">XL</th>
+                <th class="p-gutter-md font-label text-label-sm uppercase text-on-surface-variant text-right">Total</th>
+                <th class="p-gutter-md font-label text-label-sm uppercase text-on-surface-variant text-right">Restock</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="border-b border-outline-variant">
+                <td class="p-gutter-md">
+                  <div class="flex flex-col">
+                    <span class="font-body text-title-md uppercase text-on-surface">Obsidian Hoodie</span>
+                    <span class="font-label text-label-sm text-on-surface-variant tabular-nums">DR-04-HD01</span>
+                  </div>
+                </td>
+                <td class="p-gutter-md font-label text-label-sm text-center tabular-nums">24</td>
+                <td class="p-gutter-md font-label text-label-sm text-center tabular-nums">42</td>
+                <td class="p-gutter-md font-label text-label-sm text-center tabular-nums">38</td>
+                <td class="p-gutter-md font-label text-label-sm text-center tabular-nums">18</td>
+                <td class="p-gutter-md font-label text-label-sm text-accent text-right tabular-nums">122</td>
+                <td class="p-gutter-md text-right"><button type="button" class="font-label text-label-sm uppercase border border-outline px-2.5 py-1 hover:border-accent hover:text-accent">+10 Units</button></td>
+              </tr>
+              <tr class="border-b border-outline-variant">
+                <td class="p-gutter-md">
+                  <div class="flex flex-col">
+                    <span class="font-body text-title-md uppercase text-on-surface">Nocturne Bomber</span>
+                    <span class="font-label text-label-sm text-on-surface-variant tabular-nums">DR-04-JK03</span>
+                  </div>
+                </td>
+                <td class="p-gutter-md font-label text-label-sm text-center text-error tabular-nums">02</td>
+                <td class="p-gutter-md font-label text-label-sm text-center text-error tabular-nums">04</td>
+                <td class="p-gutter-md font-label text-label-sm text-center tabular-nums">06</td>
+                <td class="p-gutter-md font-label text-label-sm text-center text-error tabular-nums">01</td>
+                <td class="p-gutter-md font-label text-label-sm text-error text-right tabular-nums">13</td>
+                <td class="p-gutter-md text-right"><button type="button" class="font-label text-label-sm uppercase bg-accent text-on-accent border border-accent px-2.5 py-1 hover:bg-primary hover:border-primary">+10 Units</button></td>
+              </tr>
+              <tr class="border-b border-outline-variant">
+                <td class="p-gutter-md">
+                  <div class="flex flex-col">
+                    <span class="font-body text-title-md uppercase text-on-surface">Static Boxy Tee</span>
+                    <span class="font-label text-label-sm text-on-surface-variant tabular-nums">DR-04-TS02</span>
+                  </div>
+                </td>
+                <td class="p-gutter-md font-label text-label-sm text-center tabular-nums">30</td>
+                <td class="p-gutter-md font-label text-label-sm text-center tabular-nums">54</td>
+                <td class="p-gutter-md font-label text-label-sm text-center tabular-nums">48</td>
+                <td class="p-gutter-md font-label text-label-sm text-center tabular-nums">22</td>
+                <td class="p-gutter-md font-label text-label-sm text-accent text-right tabular-nums">154</td>
+                <td class="p-gutter-md text-right"><button type="button" class="font-label text-label-sm uppercase border border-outline px-2.5 py-1 hover:border-accent hover:text-accent">+10 Units</button></td>
+              </tr>
+              <tr>
+                <td class="p-gutter-md">
+                  <div class="flex flex-col">
+                    <span class="font-body text-title-md uppercase text-on-surface">Concrete Cargo</span>
+                    <span class="font-label text-label-sm text-on-surface-variant tabular-nums">DR-04-PT04</span>
+                  </div>
+                </td>
+                <td class="p-gutter-md font-label text-label-sm text-center tabular-nums">14</td>
+                <td class="p-gutter-md font-label text-label-sm text-center tabular-nums">26</td>
+                <td class="p-gutter-md font-label text-label-sm text-center tabular-nums">19</td>
+                <td class="p-gutter-md font-label text-label-sm text-center text-error tabular-nums">03</td>
+                <td class="p-gutter-md font-label text-label-sm text-on-surface text-right tabular-nums">62</td>
+                <td class="p-gutter-md text-right"><button type="button" class="font-label text-label-sm uppercase border border-outline px-2.5 py-1 hover:border-accent hover:text-accent">+10 Units</button></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </main>
+    </div>
+  </div>
+
+
+</body></html>

@@ -1,0 +1,174 @@
+<!DOCTYPE html><html lang="en"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DUSK RIOT — Sign In &amp; Register</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script id="tailwind-config">/** @type {import('tailwindcss').Config} */
+globalThis.tailwind = globalThis.tailwind || {};
+globalThis.tailwind.config = {
+  darkMode: 'class',
+  theme: {
+    extend: {
+      colors: {
+        'surface': '#0B0B0B',
+        'on-surface': '#F5F5F0',
+        'surface-container-low': '#151515',
+        'surface-container': '#191919',
+        'surface-container-high': '#222222',
+        'on-surface-variant': '#A1A1A1',
+        'primary': '#F5F5F0',
+        'on-primary': '#0B0B0B',
+        'accent': '#C7FF3D',
+        'on-accent': '#0B0B0B',
+        'outline': '#292929',
+        'outline-variant': '#1F1F1F',
+        'error': '#FF5449',
+        'on-error': '#0B0B0B',
+      },
+      borderRadius: {
+        'none': '0px',
+        'sm': '2px',
+        'DEFAULT': '0px',
+        'md': '2px',
+        'full': '9999px',
+      },
+      spacing: {
+        'gutter-xs': '4px',
+        'gutter-sm': '8px',
+        'gutter-md': '16px',
+        'gutter-lg': '24px',
+        'gutter-xl': '32px',
+        'section': '64px',
+        'page-margin': '32px',
+      },
+      fontFamily: {
+        'display': ['"Barlow Condensed"', 'sans-serif'],
+        'headline': ['"Barlow Condensed"', 'sans-serif'],
+        'title': ['"Barlow Condensed"', 'sans-serif'],
+        'body': ['"Inter"', 'sans-serif'],
+        'label': ['"Inter"', 'sans-serif'],
+      },
+      fontSize: {
+        'display-xl': ['88px', { lineHeight: '84px', letterSpacing: '-2px', fontWeight: '800' }],
+        'display-xl-mobile': ['32px', { lineHeight: '34px', letterSpacing: '-0.5px', fontWeight: '800' }],
+        'display-lg': ['64px', { lineHeight: '62px', letterSpacing: '-1.5px', fontWeight: '800' }],
+        'display-lg-mobile': ['32px', { lineHeight: '34px', letterSpacing: '-0.5px', fontWeight: '800' }],
+        'headline-lg': ['44px', { lineHeight: '46px', letterSpacing: '-0.75px', fontWeight: '700' }],
+        'headline-lg-mobile': ['28px', { lineHeight: '30px', letterSpacing: '-0.25px', fontWeight: '700' }],
+        'headline-md': ['32px', { lineHeight: '36px', letterSpacing: '-0.25px', fontWeight: '700' }],
+        'title-lg': ['24px', { lineHeight: '28px', letterSpacing: '0.25px', fontWeight: '700' }],
+        'title-md': ['16px', { lineHeight: '22px', letterSpacing: '0px', fontWeight: '600' }],
+        'body-lg': ['16px', { lineHeight: '24px', letterSpacing: '0px', fontWeight: '400' }],
+        'body-md': ['14px', { lineHeight: '22px', letterSpacing: '0px', fontWeight: '400' }],
+        'label-lg': ['13px', { lineHeight: '16px', letterSpacing: '0.75px', fontWeight: '600' }],
+        'label-sm': ['11px', { lineHeight: '14px', letterSpacing: '1px', fontWeight: '500' }],
+      },
+      transitionDuration: {
+        'state-change': '150ms',
+        'image-hover': '280ms',
+        'drawer-enter': '240ms',
+      },
+      transitionDelay: {
+        'state-change': '0ms',
+        'image-hover': '0ms',
+        'drawer-enter': '0ms',
+      },
+      transitionTimingFunction: {
+        'state-change': 'cubic-bezier(0.2, 0, 0, 1)',
+        'image-hover': 'cubic-bezier(0.2, 0, 0, 1)',
+        'drawer-enter': 'cubic-bezier(0.2, 0, 0, 1)',
+      },
+    },
+  },
+};
+if (typeof module !== 'undefined') module.exports = globalThis.tailwind.config;
+</script>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&amp;family=Inter:wght@400;500;600;700&amp;family=Spline+Sans+Mono:wght@500&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=block" rel="stylesheet">
+  <style>.material-symbols-outlined, .material-symbols-rounded, .material-symbols-sharp, .material-icons { display: inline-block; width: 1em; height: 1em; line-height: 1 !important; box-sizing: content-box; overflow: hidden; white-space: nowrap; direction: ltr; vertical-align: middle; }</style>
+</head>
+<body class="bg-surface text-on-surface font-body antialiased selection:bg-accent selection:text-on-accent">
+
+  <div class="min-h-[1024px] flex flex-col justify-between bg-surface p-gutter-md md:p-page-margin" data-stitch-vh="min-h-[1024px]===min-h-screen">
+    <div class="flex items-center justify-between">
+      <a href="../home/DuskRiotHome.html" class="font-display text-headline-md uppercase text-on-surface hover:text-accent">DUSK RIOT</a>
+      <a href="../shop/ShopListing.html" data-design-text-token="label-sm" class="font-label text-label-sm uppercase text-on-surface-variant hover:text-accent">Return to Storefront</a>
+    </div>
+
+    <main class="w-full max-w-md mx-auto my-gutter-xl bg-surface-container border border-outline p-gutter-xl flex flex-col gap-gutter-lg">
+      <div class="flex flex-col gap-gutter-xs">
+        <span data-design-text-token="label-sm" class="font-label text-label-sm uppercase text-accent tracking-widest">MEMBER ACCESS</span>
+        <h1 data-design-text-token="headline-lg" class="font-headline text-headline-lg uppercase text-on-surface">DUSK RIOT CLUB</h1>
+      </div>
+
+      <!-- Auth Mode Toggle -->
+      <div class="grid grid-cols-2 border border-outline bg-surface-container-low" role="tablist">
+        <button id="tab-signin" type="button" role="tab" aria-selected="true" class="py-2.5 font-label text-label-lg uppercase tracking-wider bg-primary text-on-primary">Sign In</button>
+        <button id="tab-register" type="button" role="tab" aria-selected="false" class="py-2.5 font-label text-label-lg uppercase tracking-wider text-on-surface-variant hover:text-on-surface">Register</button>
+      </div>
+
+      <!-- Sign In Panel -->
+      <form id="panel-signin" class="flex flex-col gap-gutter-md">
+        <div class="flex flex-col gap-gutter-xs">
+          <label for="auth-email" data-design-text-token="label-sm" class="font-label text-label-sm uppercase text-on-surface-variant">Email</label>
+          <input id="auth-email" type="email" placeholder="NAME@DOMAIN.COM" class="bg-surface-container-low text-on-surface placeholder:text-on-surface-variant font-body text-body-md px-gutter-md py-3 border border-outline focus:border-accent focus:ring-0 focus:outline-none">
+        </div>
+        <div class="flex flex-col gap-gutter-xs">
+          <div class="flex items-center justify-between">
+            <label for="auth-pass" data-design-text-token="label-sm" class="font-label text-label-sm uppercase text-on-surface-variant">Password</label>
+            <a href="#reset" data-design-text-token="label-sm" class="font-label text-label-sm uppercase text-on-surface-variant hover:text-accent">Forgot?</a>
+          </div>
+          <input id="auth-pass" type="password" placeholder="••••••••" class="bg-surface-container-low text-on-surface placeholder:text-on-surface-variant font-body text-body-md px-gutter-md py-3 border border-outline focus:border-accent focus:ring-0 focus:outline-none">
+        </div>
+        <a href="../account/CustomerAccount.html" class="mt-gutter-xs w-full inline-flex items-center justify-center bg-accent text-on-accent font-label text-label-lg uppercase tracking-wider py-3.5 border border-accent hover:bg-primary hover:text-on-primary hover:border-primary transition-colors duration-state-change">
+          <span data-design-text-token="label-lg">Enter Club</span>
+        </a>
+      </form>
+
+      <!-- Register Panel -->
+      <form id="panel-register" class="hidden flex-col gap-gutter-md">
+        <div class="flex flex-col gap-gutter-xs">
+          <label for="reg-name" data-design-text-token="label-sm" class="font-label text-label-sm uppercase text-on-surface-variant">Full Name</label>
+          <input id="reg-name" type="text" placeholder="KAI VANCE" class="bg-surface-container-low text-on-surface placeholder:text-on-surface-variant font-body text-body-md px-gutter-md py-3 border border-outline focus:border-accent focus:ring-0 focus:outline-none">
+        </div>
+        <div class="flex flex-col gap-gutter-xs">
+          <label for="reg-email" data-design-text-token="label-sm" class="font-label text-label-sm uppercase text-on-surface-variant">Email</label>
+          <input id="reg-email" type="email" placeholder="NAME@DOMAIN.COM" class="bg-surface-container-low text-on-surface placeholder:text-on-surface-variant font-body text-body-md px-gutter-md py-3 border border-outline focus:border-accent focus:ring-0 focus:outline-none">
+        </div>
+        <div class="flex flex-col gap-gutter-xs">
+          <label for="reg-pass" data-design-text-token="label-sm" class="font-label text-label-sm uppercase text-on-surface-variant">Create Password</label>
+          <input id="reg-pass" type="password" placeholder="MIN 8 CHARACTERS" class="bg-surface-container-low text-on-surface placeholder:text-on-surface-variant font-body text-body-md px-gutter-md py-3 border border-outline focus:border-accent focus:ring-0 focus:outline-none">
+        </div>
+        <a href="../account/CustomerAccount.html" class="mt-gutter-xs w-full inline-flex items-center justify-center bg-accent text-on-accent font-label text-label-lg uppercase tracking-wider py-3.5 border border-accent hover:bg-primary hover:text-on-primary hover:border-primary transition-colors duration-state-change">
+          <span data-design-text-token="label-lg">Create Account</span>
+        </a>
+      </form>
+    </main>
+
+    <div class="flex items-center justify-between border-t border-outline pt-gutter-md">
+      <span data-design-text-token="label-sm" class="font-label text-label-sm uppercase text-on-surface-variant">BREAK THE ORDINARY.</span>
+      <span data-design-text-token="label-sm" class="font-label text-label-sm uppercase text-on-surface-variant">© 2026 DUSK RIOT</span>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      var tabIn = document.getElementById('tab-signin');
+      var tabReg = document.getElementById('tab-register');
+      var panIn = document.getElementById('panel-signin');
+      var panReg = document.getElementById('panel-register');
+      function switchTab(isIn) {
+        tabIn.className = isIn ? 'py-2.5 font-label text-label-lg uppercase tracking-wider bg-primary text-on-primary' : 'py-2.5 font-label text-label-lg uppercase tracking-wider text-on-surface-variant hover:text-on-surface';
+        tabReg.className = !isIn ? 'py-2.5 font-label text-label-lg uppercase tracking-wider bg-primary text-on-primary' : 'py-2.5 font-label text-label-lg uppercase tracking-wider text-on-surface-variant hover:text-on-surface';
+        panIn.classList.toggle('hidden', !isIn);
+        panIn.classList.toggle('flex', isIn);
+        panReg.classList.toggle('hidden', isIn);
+        panReg.classList.toggle('flex', !isIn);
+      }
+      if (tabIn) tabIn.addEventListener('click', function () { switchTab(true); });
+      if (tabReg) tabReg.addEventListener('click', function () { switchTab(false); });
+    })();
+  </script>
+
+
+</body></html>
